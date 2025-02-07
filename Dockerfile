@@ -3,13 +3,16 @@ FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
+# Install git and build dependencies
+RUN apk add --no-cache git
+
 # Copy go mod files first to leverage Docker cache
 COPY . .
 
-# Download dependencies
-RUN go get -d -v ./...
+RUN go mod init odoo-pipline
 
-# Copy the source code
+# Fetch dependencies
+RUN go get -d -v ./...
 
 
 # Build the application
