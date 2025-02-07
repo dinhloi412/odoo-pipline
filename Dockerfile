@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Download dependencies
-RUN go mod download
+RUN go get -d -v ./...
 
 # Copy the source code
 
