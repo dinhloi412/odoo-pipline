@@ -29,8 +29,5 @@ RUN apk --no-cache add ca-certificates
 # Copy the binary from builder
 COPY --from=builder /app/server .
 
-# Expose the port the app runs on
-EXPOSE 1323
-
 # Command to run the application
 CMD ["./server"]
