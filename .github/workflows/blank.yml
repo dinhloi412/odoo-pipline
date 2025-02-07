@@ -3,13 +3,13 @@ name: Deploy Odoo 17
 on:
   push:
     branches:
-      - main  # or your default branch name
-  workflow_dispatch:  # Allows manual trigger
+      - main # or your default branch name
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    
+    runs-on: self-hosted
+
     steps:
       - name: SSH into server and deploy
         uses: appleboy/ssh-action@v1.0.0
@@ -21,12 +21,12 @@ jobs:
           script: |
             # Navigate to your Odoo directory
             cd /odoo_mnt/addons_17/pur
-            
+
             # Pull the latest changes
             git pull origin main
-            
+
             # Restart the Docker container
             docker restart test-odoo17  # Replace with your container name
-            
+
             # Optional: Check container status
             docker ps | grep test-odoo17
