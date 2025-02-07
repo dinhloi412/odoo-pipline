@@ -14,19 +14,15 @@ jobs:
       - name: SSH into server and deploy
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           script: |
             # Navigate to your Odoo directory
-            cd https://github.com/dinhloi412/odoo-pipline.git
+            cd /home/odoo-pipline
 
             # Pull the latest changes
             git pull origin main
 
             # Restart the Docker container
-            docker restart test-odoo17  # Replace with your container name
+            docker restart stupefied_chatelet  # Replace with your container name
 
             # Optional: Check container status
-            docker ps | grep test-odoo17
+            docker ps | grep stupefied_chatelet
