@@ -4,13 +4,13 @@ FROM golang:1.21-alpine AS builder
 WORKDIR /app
 
 # Copy go mod files first to leverage Docker cache
-COPY go.mod go.sum* ./
+COPY . .
 
 # Download dependencies
 RUN go mod download
 
 # Copy the source code
-COPY . .
+
 
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server main.go

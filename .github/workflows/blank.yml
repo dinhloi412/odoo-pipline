@@ -20,7 +20,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             # Navigate to your Odoo directory
-            cd /odoo_mnt/addons_17/pur
+            cd https://github.com/dinhloi412/odoo-pipline.git
 
             # Pull the latest changes
             git pull origin main
