@@ -20,13 +20,13 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             # Navigate to your Odoo directory
-            cd /path/to/your/odoo
+            cd /odoo_mnt/addons_17/pur
             
             # Pull the latest changes
             git pull origin main
             
             # Restart the Docker container
-            docker restart odoo_container  # Replace with your container name
+            docker restart test-odoo17  # Replace with your container name
             
             # Optional: Check container status
-            docker ps | grep odoo_container
+            docker ps | grep test-odoo17
