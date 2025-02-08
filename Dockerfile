@@ -3,6 +3,7 @@ FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
+
 # Install git and build dependencies
 RUN apk add --no-cache git
 
